@@ -98,7 +98,10 @@ export default function HeroCanvas({ scrollTrackRef }) {
 
     return (
         <div className="relative w-full h-full bg-black">
-            <canvas ref={canvasRef} className="block w-full h-full object-cover" />
+            <canvas
+                ref={canvasRef}
+                className="block w-full h-full object-cover filter contrast-[1.05] saturate-[1.05]"
+            />
 
             {/* Text Layer */}
             <div className="absolute inset-0 pointer-events-none z-10">

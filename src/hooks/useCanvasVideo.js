@@ -43,7 +43,10 @@ export function useCanvasVideo(canvasRef, frameCount = 278) {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        const context = canvas.getContext('2d');
+        const context = canvas.getContext('2d', {
+            alpha: false,
+            colorSpace: 'display-p3'
+        });
         if (!context) return;
 
         // High-DPI Support
