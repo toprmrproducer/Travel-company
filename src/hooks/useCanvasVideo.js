@@ -10,6 +10,9 @@ export function useCanvasVideo(canvasRef, frameCount = 278) {
     const imagePrefix = "ezgif-frame-";
     const imageExtension = ".jpg";
 
+    // We use a ref to store images to avoid re-renders on every load
+    const savedImages = useRef([]);
+
     // Preload images on mount
     useEffect(() => {
         const loadedImages = [];
@@ -34,9 +37,6 @@ export function useCanvasVideo(canvasRef, frameCount = 278) {
         // Sort logic not strictly needed if we access by index, but good for array state
         // We use a ref for immediate access in the loop anyway
     }, [frameCount]);
-
-    // We use a ref to store images to avoid re-renders on every load
-    const savedImages = useRef([]);
 
     // Draw function
     const drawFrame = (index) => {
